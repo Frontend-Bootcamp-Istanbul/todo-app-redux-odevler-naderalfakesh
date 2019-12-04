@@ -11,7 +11,7 @@ import {setFilter, setTodos, addTodo} from "./actionCreators/actionCreaters";
 class App extends Component {
   constructor(props){
     super(props);
-    this.addTodo = this.addTodo.bind(this);
+    // this.addTodo = this.addTodo.bind(this);
     this.removeAllTodos = this.removeAllTodos.bind(this);
     this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this);
   }
@@ -32,13 +32,13 @@ class App extends Component {
       }
   }
 
-    addTodo(newTodo){
-      this.props.addTodo({
-          content: newTodo,
-          id: Math.random(),
-          checked: false
-      });
-  }
+//     addTodo(newTodo){
+//       this.props.addTodo({
+//           content: newTodo,
+//           id: Math.random(),
+//           checked: false
+//       });
+//   }
 
   removeAllTodos(){
     this.setState({
@@ -85,7 +85,7 @@ class App extends Component {
             <div className="todo-list todo-list-add">
                 <h3>Todo Ekle / Sil</h3>
                 <div>
-                    <AddTodo   onTodoAdd={this.addTodo} />
+                    <AddTodo/>
                     <RemoveAll onRemoveAll={this.removeAllTodos}/>
                     <Filters />
                 </div>

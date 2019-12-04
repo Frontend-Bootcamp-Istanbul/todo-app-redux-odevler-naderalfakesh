@@ -1,4 +1,4 @@
-import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO} from "../actions/actions";
+import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO,ON_ADD_TODO} from "../actions/actions";
 
 const rootReducer = function (state = {
     activeFilter: "all",
@@ -16,7 +16,14 @@ const rootReducer = function (state = {
             return {
                 ...state,
                 todos: newTodos
-            };
+            }
+        case ON_ADD_TODO:
+            return {...state, todos: state.todos.concat([{ 
+                content: action.todo,
+                id: Math.random(),
+                checked: false 
+                }])
+                    }
         default:
             return state;
     }
