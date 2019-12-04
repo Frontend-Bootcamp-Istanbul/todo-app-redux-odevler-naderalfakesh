@@ -3,9 +3,9 @@ import Todo from './Todo';
 
 
 class TodoList extends React.Component{
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
     render(){
         return (
             <div className="todo-list">

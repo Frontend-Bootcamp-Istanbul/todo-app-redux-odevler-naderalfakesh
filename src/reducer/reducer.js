@@ -1,4 +1,4 @@
-import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO,ON_ADD_TODO} from "../actions/actions";
+import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO,ON_ADD_TODO,REMOVE_ALL_TODOS} from "../actions/actions";
 
 const rootReducer = function (state = {
     activeFilter: "all",
@@ -23,7 +23,10 @@ const rootReducer = function (state = {
                 id: Math.random(),
                 checked: false 
                 }])
-                    }
+            }
+        case REMOVE_ALL_TODOS:
+            window.localStorage.removeItem("todos");
+            return {...state, todos: []}
         default:
             return state;
     }

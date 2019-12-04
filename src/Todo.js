@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {setFilter, removeTodo} from "./actionCreators/actionCreaters";
+import { removeTodo} from "./actionCreators/actionCreaters";
 
 function Todo(props) {
     const {content, id, checked} = props;
