@@ -87,3 +87,10 @@ button.remove-all{
   color: #fff;
   border-radius: 5px;
 }
+
+#Notification {
+  text-align: center;
+  background-color: aquamarine;
+  height: 24px;
+  opacity: 100;
+}

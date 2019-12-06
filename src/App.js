@@ -6,14 +6,10 @@ import "./App.css";
 import Filters from "./Filters";
 import {connect} from "react-redux";
 import {  setTodos, addTodo} from "./actionCreators/actionCreaters";
+import Notification from "./Notification";
 
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.toggleCompleteStatus = this.toggleCompleteStatus.bind(this);
-  }
-
   componentDidMount() {
       console.log("GÜncel proplar", this.props);
     // Component oluştuktan sonra gerekli olan datayı localstoragedan geyiriyoruz.
@@ -30,29 +26,6 @@ class App extends Component {
       }
   }
 
-
-
-
-  toggleCompleteStatus(id){
-      // Map ile mevcut todolar arasında döngüye girip, değiştirmek istediğimi farklı şekilde dönüyorum.
-      // Aradığım itemin checked statusunu değiştiriyorum, rest ile kopyalayarak yani mutate etmeden.
-      // Diğer elemanları olduğu gibi dönüyorum, "return todo";
-      const newArr = this.state.todos.map((todo) => {
-          if(id === todo.id){
-              let currentTodo = {...todo};
-              currentTodo.checked = !currentTodo.checked;
-              return currentTodo;
-          }else{
-              return todo;
-          }
-      });
-      this.setState({
-          todos: newArr
-      }, () => {
-          window.localStorage.setItem("todos", JSON.stringify(this.state.todos));
-      });
-  }
-
   filterTodos = (todos, filterType) => {
     if(filterType === "all"){
         return todos;
@@ -64,9 +37,10 @@ class App extends Component {
   }
 
   render(){
-      console.log("App props", this.props);
+    //   console.log("App props", this.props);
     return (
         <div className="App" id="todo">
+            <Notification />
             <div className="todo-list todo-list-add">
                 <h3>Todo Ekle / Sil</h3>
                 <div>
@@ -75,10 +49,7 @@ class App extends Component {
                     <Filters />
                 </div>
             </div>
-            <TodoList
-                title="Todolist"
-                todos={this.filterTodos(this.props.todos, this.props.activeFilter)}
-                onCheckedToggle={this.toggleCompleteStatus} />
+            <TodoList todos={this.filterTodos(this.props.todos, this.props.activeFilter)} />
         </div>
     );
   }

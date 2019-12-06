@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {onAddTodo } from "./actionCreators/actionCreaters";
+import {onAddTodo ,showNotification} from "./actionCreators/actionCreaters";
 
 
 
@@ -24,6 +24,7 @@ class AddTodo extends React.Component {
     addTodo(event){
         event.preventDefault();
         this.props.onAddTodo(this.state.inputVal);
+        this.props.showNotification("Bir tane todo eklendi");
         this.setState({
             inputVal: ""
         });
@@ -43,7 +44,8 @@ class AddTodo extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    onAddTodo: (todo) => {dispatch(onAddTodo(todo))}
+    onAddTodo: (todo) => {dispatch(onAddTodo(todo))},
+    showNotification: (yazi) => {dispatch(showNotification(yazi))}
 });
 
 export default connect(null, mapDispatchToProps)(AddTodo);

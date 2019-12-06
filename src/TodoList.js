@@ -16,7 +16,6 @@ class TodoList extends React.Component{
                         return <Todo
                             {...todo}
                             key={todo.id}
-                            onCheckedToggle={this.props.onCheckedToggle}
                         />
                     })
                 }

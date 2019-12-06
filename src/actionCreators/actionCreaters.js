@@ -1,4 +1,7 @@
-import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO , ON_ADD_TODO , REMOVE_ALL_TODOS} from "../actions/actions";
+import {SET_FILTER, SET_TODOS, ADD_TODO,
+         REMOVE_TODO , ON_ADD_TODO ,
+     REMOVE_ALL_TODOS , TOGGLE_COMPLETE_STATUS ,
+     SHOW_NOTIFICATION ,HIDE_NOTIFICATION} from "../actions/actions";
 
 export function setFilter(newFilter){
     return {type: SET_FILTER, activeFilter: newFilter}
@@ -20,4 +23,13 @@ export function onAddTodo(todo){
 }
 export function removeAllTodos( ){
     return {type: REMOVE_ALL_TODOS }
+}
+export function toggleCompleteStatus(id ){
+    return {type: TOGGLE_COMPLETE_STATUS , id}
+}
+export function showNotification(yazi){
+    return {type: SHOW_NOTIFICATION,yazi}
+}
+export function hideNotification( ){
+    return {type: HIDE_NOTIFICATION  }
 }

@@ -1,8 +1,12 @@
-import {SET_FILTER, SET_TODOS, ADD_TODO, REMOVE_TODO,ON_ADD_TODO,REMOVE_ALL_TODOS} from "../actions/actions";
+import {SET_FILTER, SET_TODOS, ADD_TODO,
+     REMOVE_TODO,ON_ADD_TODO,REMOVE_ALL_TODOS,
+     TOGGLE_COMPLETE_STATUS,SHOW_NOTIFICATION,HIDE_NOTIFICATION
+    } from "../actions/actions";
 
 const rootReducer = function (state = {
     activeFilter: "all",
-    todos: []
+    todos: [],
+    notification: ""
 }, action) {
     switch (action.type) {
         case SET_FILTER:
@@ -27,6 +31,22 @@ const rootReducer = function (state = {
         case REMOVE_ALL_TODOS:
             window.localStorage.removeItem("todos");
             return {...state, todos: []}
+        case TOGGLE_COMPLETE_STATUS:
+            const updatedTodos = state.todos.map((todo)=>{
+                    if(todo.id === action.id){
+                        let currentTodo = {...todo};
+                        currentTodo.checked = !currentTodo.checked;
+                        return currentTodo;
+                        }
+                    else{
+                        return todo;
+                    }
+                }) ;
+            return {...state, todos: updatedTodos};
+        case SHOW_NOTIFICATION:
+            return {...state,notification: action.yazi};
+        case HIDE_NOTIFICATION:
+            return {...state,notification: ""};;
         default:
             return state;
     }
