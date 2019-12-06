@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {hideNotification} from "./actionCreators/actionCreaters"
 
+import styled from 'styled-components'
+
+const Div = styled.div`
+text-align: center;
+background-color: aquamarine;
+height: 24px;
+opacity: 100;
+}
+`
+
 export class Notification extends Component {
     
     componentDidUpdate(prevProps){
@@ -12,9 +22,9 @@ export class Notification extends Component {
 
     render() {
         if(this.props.notification !== "")
-        return (<div id="Notification" style={{opacity: 100}}  >{this.props.notification}</div>);
+        return (<Div  style={{opacity: 100}}  >{this.props.notification}</Div>);
         else
-        return (<div id="Notification" style={{opacity: 0}}  > </div>);
+        return (<Div style={{opacity: 0}}  > </Div>);
     }
 }
 

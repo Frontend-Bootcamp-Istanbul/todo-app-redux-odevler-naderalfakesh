@@ -9,6 +9,8 @@ import {  setTodos, addTodo} from "./actionCreators/actionCreaters";
 import Notification from "./Notification";
 
 
+
+
 class App extends Component {
   componentDidMount() {
       console.log("GÜncel proplar", this.props);

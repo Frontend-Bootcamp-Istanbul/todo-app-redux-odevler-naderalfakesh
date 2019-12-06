@@ -57,17 +57,6 @@ button {
   font-size: 1em;
 }
 
-button.remove-all{
-  width: 90%;
-  margin: 0 auto;
-  display: block;
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  background: #7d3232;
-  color: #fff;
-  cursor: pointer;
-}
 
 .checked {
   text-decoration: line-through;
@@ -77,20 +66,5 @@ button.remove-all{
   cursor: pointer;
   margin-bottom: 10px;
 }
+ 
 
-.remove-todo {
-  background-color: #76030B;
-  font-weight: bold;
-  display: inline-block;
-  margin-left: 10px;
-  padding: 5px;
-  color: #fff;
-  border-radius: 5px;
-}
-
-#Notification {
-  text-align: center;
-  background-color: aquamarine;
-  height: 24px;
-  opacity: 100;
-}
